@@ -1,1 +1,1 @@
-# telia-challenge-tf-solution
+# aws-challenge-tf-solution
