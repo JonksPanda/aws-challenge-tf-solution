@@ -1,3 +1,4 @@
+# Sets file to cv as variable
 variable "filepath" {
   type    = string
   default = "./documents/CV-Jonathan_Friberg-SV.pdf"
@@ -34,6 +35,7 @@ resource "aws_s3_bucket_ownership_controls" "cv_bucket_ownership" {
   }
 }
 
+# Removes public access block
 resource "aws_s3_bucket_public_access_block" "cv_grant_acl" {
   bucket = aws_s3_bucket.cv_bucket.id
 
@@ -43,6 +45,7 @@ resource "aws_s3_bucket_public_access_block" "cv_grant_acl" {
   restrict_public_buckets = false
 }
 
+# Sets private acl on bucket
 resource "aws_s3_bucket_acl" "cv_bucket_acl" {
   depends_on = [aws_s3_bucket_ownership_controls.cv_bucket_ownership]
 
